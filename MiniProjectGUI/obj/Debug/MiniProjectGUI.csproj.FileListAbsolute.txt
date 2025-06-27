@@ -36,3 +36,7 @@ C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\ChatHistory
 C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI_MarkupCompile.lref
 C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\ChatHistory.baml
 C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProj.3B5ACD3C.Up2Date
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\Quiz.g.cs
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\Quiz.baml
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\RemindersWindow.g.cs
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\RemindersWindow.baml

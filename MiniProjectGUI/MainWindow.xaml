@@ -16,17 +16,15 @@
             <!-- Row 2: Input area -->
         </Grid.RowDefinitions>
 
-        <!-- 🔹 Top-left "View History" button -->
-        <Button Content="View Chat History"
-                Grid.Row="0"
+        <!-- 🔹 Top-left "Play Quiz" button -->
+        <Button Content="Play Cyber-Awareness Quiz"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="100"
+                VerticalAlignment="Center"
+                Width="157"
                 Height="30"
-                Margin="0,0,0,5"
-                Click="ViewHistory_Click"
+                Click="OpenQuizButton_Click"
                 Background="#fab0f0"
-                Foreground="White"/>
+                Foreground="Black"/>
 
         <!-- 🔹 Chat Display -->
         <ListBox x:Name="ChatListBox"

@@ -2,21 +2,51 @@
   {
     "Sender": "User",
     "Message": "Hi",
-    "Timestamp": "2025-06-27T17:40:20.2289683+02:00"
+    "Timestamp": "2025-06-27T22:01:39.863429+02:00"
   },
   {
     "Sender": "Bot",
     "Message": "Hello!! What can I help you with?",
-    "Timestamp": "2025-06-27T17:40:20.2289683+02:00"
+    "Timestamp": "2025-06-27T22:01:39.863429+02:00"
   },
   {
     "Sender": "User",
-    "Message": "I am so sad",
-    "Timestamp": "2025-06-27T17:40:33.8814572+02:00"
+    "Message": "What can I ask about ?",
+    "Timestamp": "2025-06-27T22:01:49.3592996+02:00"
+  },
+  {
+    "Sender": "Bot",
+    "Message": "\uD83D\uDCDA You can ask about:\n- botnet\n- credential stuffing\n- denial of services\n- drive by download\n- hello\n- hey\n- malware\n- man in the middle\n- password\n- phishing\n- purpose\n- ransomware\n- social engineering\n- spamming\n- spyware\n- sql injection\n- suspicious links\n- zero day",
+    "Timestamp": "2025-06-27T22:01:49.3592996+02:00"
+  },
+  {
+    "Sender": "User",
+    "Message": "I am sad",
+    "Timestamp": "2025-06-27T22:03:19.1686249+02:00"
   },
   {
     "Sender": "Bot",
     "Message": "I\u2019m here for you. Let me know how I can help.",
-    "Timestamp": "2025-06-27T17:40:33.8814572+02:00"
+    "Timestamp": "2025-06-27T22:03:19.1686249+02:00"
+  },
+  {
+    "Sender": "User",
+    "Message": "Phishing",
+    "Timestamp": "2025-06-27T22:03:28.7900862+02:00"
+  },
+  {
+    "Sender": "Bot",
+    "Message": "A phishing attack is when a scammer tries to trick you into giving up sensitive info\u2014like passwords, credit card numbers, or personal details\u2014by pretending to be someone you trust.\n\nPrevention Tips:\nDon\u2019t click on links or download attachments from sketchy emails.\n- Check the sender\u2019s email address carefully\u2014it might look \u0027off\u0027.\n- Look for weird grammar or urgent scare tactics.\n- Always type website URLs manually instead of clicking email links.\n- Use two-factor authentication wherever possible.",
+    "Timestamp": "2025-06-27T22:03:28.7900862+02:00"
+  },
+  {
+    "Sender": "User",
+    "Message": "Phishing tips",
+    "Timestamp": "2025-06-27T22:03:35.8163343+02:00"
+  },
+  {
+    "Sender": "Bot",
+    "Message": "\uD83D\uDCA1 Tip on phishing: Check the sender\u2019s email address carefully\u2014it might look \u0027off\u0027.",
+    "Timestamp": "2025-06-27T22:03:35.8163343+02:00"
   }
 ]

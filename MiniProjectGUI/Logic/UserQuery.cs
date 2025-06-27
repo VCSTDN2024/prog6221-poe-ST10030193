@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MiniProjectGUI.Logic
 {
@@ -30,8 +31,14 @@ namespace MiniProjectGUI.Logic
             if (input.Contains("exit"))
                 return "👋 Goodbye! Stay safe online.";
 
+            if (input.Contains("how are you"))
+                return "I am good thanks for asking how are you ?.";
+
             if (input.Contains("ask"))
-                return "You can ask about: " + string.Join(", ", botResponses.Keys);
+            {
+                var topics = string.Join("\n- ", botResponses.Keys.OrderBy(k => k));
+                return "📚 You can ask about:\n- " + topics;
+            }
 
             if (input.Contains("tip"))
             {
@@ -46,7 +53,9 @@ namespace MiniProjectGUI.Logic
                 return "I couldn't find a tip related to that topic.";
             }
 
-            TryUpdateUserProfile(input);
+            string profileUpdateMessage = TryUpdateUserProfile(input);
+            if (!string.IsNullOrEmpty(profileUpdateMessage))
+                return profileUpdateMessage;
 
             foreach (var keyword in topicKeywords.Keys)
             {
@@ -93,29 +102,28 @@ namespace MiniProjectGUI.Logic
             return fallback;
         }
 
-        private void TryUpdateUserProfile(string input)
+        private string TryUpdateUserProfile(string input)
         {
-            if (input.Contains("i love") || input.Contains("i like") || input.Contains("i enjoy") || input.Contains("interest"))
+            input = input.ToLower();
+            string confirmation = "";
+
+            var interestMatch = System.Text.RegularExpressions.Regex.Match(input, @"\b(i love|i like|i enjoy|interest)\b\s+(.*)");
+            if (interestMatch.Success)
             {
-                string[] triggers = { "i love", "i like", "i enjoy", "interest" };
-                foreach (var trigger in triggers)
-                {
-                    if (input.Contains(trigger))
-                    {
-                        int index = input.IndexOf(trigger) + trigger.Length;
-                        string interest = input.Substring(index).Trim(new char[] { '.', '!', '?', ' ' });
-                        user.Interest = interest;
-                    }
-                }
+                string interest = interestMatch.Groups[2].Value.Trim(new char[] { '.', '!', '?', ' ' });
+                user.Interest = interest;
+                confirmation += $"Got it! I'll remember that you're interested in {interest}.\n";
             }
 
-            if (input.Contains("my favorite topic is") || input.Contains("my favourite topic is"))
+            var topicMatch = System.Text.RegularExpressions.Regex.Match(input, @"\bmy (favourite|favorite) topic is\b\s+(.*)");
+            if (topicMatch.Success)
             {
-                string phrase = input.Contains("my favorite topic is") ? "my favorite topic is" : "my favourite topic is";
-                int index = input.IndexOf(phrase) + phrase.Length;
-                string topic = input.Substring(index).Trim(new char[] { '.', '!', '?', ' ' });
+                string topic = topicMatch.Groups[2].Value.Trim(new char[] { '.', '!', '?', ' ' });
                 user.FavouriteTopic = topic;
+                confirmation += $"Thanks! I'll remember your favorite topic is {topic}.";
             }
+
+            return confirmation.Trim();
         }
 
         private string AnalyzeSentiment(string message)
@@ -225,8 +233,6 @@ namespace MiniProjectGUI.Logic
             })
         },
 
-        // New additional threats
-
         { "spyware", new BotResponse(
             "Spyware is malicious software that secretly monitors your activities and sends data to attackers without your knowledge.",
             new List<string>
@@ -317,7 +323,6 @@ namespace MiniProjectGUI.Logic
 
         { "hello", new BotResponse("Hello!! What can I help you with?") },
         { "hey", new BotResponse("Hi :)!") },
-        {"How are you", new BotResponse("I am great!! What can I inform you about today?") },
     };
         }
 

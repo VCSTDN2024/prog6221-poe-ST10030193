@@ -7,6 +7,9 @@ using System.Windows;
 using System.Text.Json;
 using System.IO;
 using MiniProjectGUI.Logic;
+using System.Media;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace MiniProjectGUI
 {
@@ -19,7 +22,7 @@ namespace MiniProjectGUI
         public MainWindow()
         {
             InitializeComponent();
-            chatbot = new UserQuery("User", "");
+           chatbot = new UserQuery("User", "");
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
@@ -28,37 +31,92 @@ namespace MiniProjectGUI
 
             if (!string.IsNullOrWhiteSpace(userMessage))
             {
-                // Display user message
-                ChatListBox.Items.Add($"You: {userMessage}");
+                string keyword = userMessage.ToLower();
 
-                // Get bot response
-                string botReply = chatbot.GetBotResponse(userMessage);
-                ChatListBox.Items.Add($"Bot: {botReply}");
-
-                // Create ChatMessage objects
-                var userMsg = new ChatMessage
+                if (keyword.Contains("activity log") || keyword.Contains("what have you done for me") || keyword.Contains("activity") || keyword.Contains("history"))
                 {
-                    Sender = "User",
-                    Message = userMessage,
-                    Timestamp = DateTime.Now
-                };
-
-                var botMsg = new ChatMessage
+                    // Open the ChatHistory form/window
+                    var historyWindow = new ChatHistory(chatHistory);
+                    historyWindow.Owner = this;
+                    historyWindow.ShowDialog();
+                }
+                else if (keyword.Contains("reminder") || keyword.Contains("remind"))
                 {
-                    Sender = "Bot",
-                    Message = botReply,
-                    Timestamp = DateTime.Now
-                };
+                    OpenRemindersWindow();
+                }
+                else
+                {
+                    // Display user message - styled ListBoxItem (right aligned, light blue)
+                    var userItem = new ListBoxItem
+                    {
+                        Content = $"You: {userMessage}",
+                        Background = Brushes.Pink,
+                        HorizontalContentAlignment = HorizontalAlignment.Right,
+                        Padding = new Thickness(8),
+                        Margin = new Thickness(5),
+                        Foreground = Brushes.Black
+                    };
+                    ChatListBox.Items.Add(userItem);
 
-                // Add to history list
-                chatHistory.Add(userMsg);
-                chatHistory.Add(botMsg);
+                    // Get bot response
+                    string botReply = chatbot.GetBotResponse(userMessage);
 
-                // Save the chat to json file
-                SaveChatHistory();
+                    // Display bot response - styled ListBoxItem (left aligned, light gray)
+                    var botItem = new ListBoxItem
+                    {
+                        Content = $"Bot: {botReply}",
+                        Background = Brushes.LightGray,
+                        HorizontalContentAlignment = HorizontalAlignment.Left,
+                        Padding = new Thickness(8),
+                        Margin = new Thickness(5),
+                        Foreground = Brushes.Black
+                    };
+                    ChatListBox.Items.Add(botItem);
 
-                // Clear input
+                    // Scroll to the latest message
+                    ChatListBox.ScrollIntoView(botItem);
+
+                    // Create ChatMessage objects for history
+                    var userMsg = new ChatMessage
+                    {
+                        Sender = "User",
+                        Message = userMessage,
+                        Timestamp = DateTime.Now
+                    };
+
+                    var botMsg = new ChatMessage
+                    {
+                        Sender = "Bot",
+                        Message = botReply,
+                        Timestamp = DateTime.Now
+                    };
+
+                    // Add to history list
+                    chatHistory.Add(userMsg);
+                    chatHistory.Add(botMsg);
+
+                    // Save chat history to JSON
+                    SaveChatHistory();
+                }
+
+                // Clear input in all cases
                 UserInputTextBox.Clear();
+            }
+        }
+
+
+        private RemindersWindow remindersWindow = null;
+
+        private void OpenRemindersWindow()
+        {
+            if (remindersWindow == null || !remindersWindow.IsVisible)
+            {
+                remindersWindow = new RemindersWindow();
+                remindersWindow.Show();
+            }
+            else
+            {
+                remindersWindow.Activate();  // Bring to front if already open
             }
         }
         private void SaveChatHistory()
@@ -66,12 +124,15 @@ namespace MiniProjectGUI
             var json = JsonSerializer.Serialize(chatHistory, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText("chat_history.json", json);
         }
-
-        private void ViewHistory_Click(object sender, RoutedEventArgs e)
+        private void OpenQuizButton_Click(object sender, RoutedEventArgs e)
         {
-            var historyWindow = new ChatHistory(chatHistory);
-            historyWindow.ShowDialog();
+            var quizWindow = new Quiz();
+            quizWindow.Owner = this;
+            quizWindow.ShowDialog();
         }
+
+       
+
     }
 }
 
