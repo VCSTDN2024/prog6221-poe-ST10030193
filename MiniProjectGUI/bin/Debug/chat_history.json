@@ -1,0 +1,22 @@
+[
+  {
+    "Sender": "User",
+    "Message": "Hi",
+    "Timestamp": "2025-06-27T17:40:20.2289683+02:00"
+  },
+  {
+    "Sender": "Bot",
+    "Message": "Hello!! What can I help you with?",
+    "Timestamp": "2025-06-27T17:40:20.2289683+02:00"
+  },
+  {
+    "Sender": "User",
+    "Message": "I am so sad",
+    "Timestamp": "2025-06-27T17:40:33.8814572+02:00"
+  },
+  {
+    "Sender": "Bot",
+    "Message": "I\u2019m here for you. Let me know how I can help.",
+    "Timestamp": "2025-06-27T17:40:33.8814572+02:00"
+  }
+]
