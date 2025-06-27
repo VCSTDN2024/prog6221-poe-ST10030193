@@ -1,0 +1,14 @@
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\bin\Debug\MiniProjectGUI.exe.config
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\bin\Debug\MiniProjectGUI.exe
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\bin\Debug\MiniProjectGUI.pdb
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.csproj.AssemblyReference.cache
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MainWindow.g.cs
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\App.g.cs
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI_MarkupCompile.cache
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MainWindow.baml
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.g.resources
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.Properties.Resources.resources
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.csproj.GenerateResource.cache
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.csproj.CoreCompileInputs.cache
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.exe
+C:\Users\Owethu\source\repos\MiniProjectGUI\MiniProjectGUI\obj\Debug\MiniProjectGUI.pdb
